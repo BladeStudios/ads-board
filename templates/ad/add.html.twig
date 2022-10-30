@@ -6,5 +6,25 @@
 {{ parent() }}
 <main>
     <h1 class="h1">Dodawanie ogłoszenia</h1>
+    <div class="form-container">
+    {{ form_start(form) }}
+    <div class="row mb-3">
+        {{ form_label(form.name, null, {'label_attr':{'class':'col-sm-3 col-form-label'}}) }}
+        <div class="col-sm-9">{{ form_widget(form.name, {'attr':{'class':'form-control'}}) }}</div>
+    </div>
+    <div class="row mb-3">
+        {{ form_label(form.price, null, {'label_attr':{'class':'col-sm-3 col-form-label'}}) }}
+        <div class="col-sm-9">{{ form_widget(form.price, {'attr':{'class':'form-control'}}) }}</div>
+    </div>
+    <div class="row mb-3">
+        {{ form_label(form.description, null, {'label_attr':{'class':'col-sm-3 col-form-label'}}) }}
+        <div class="col-sm-9">{{ form_widget(form.description, {'attr':{'class':'form-control'}}) }}</div>
+    </div>
+    <div class="mb-2" style="float: right;">
+        <span>{{ form_widget(form.save, {'attr': {'class': 'btn btn-primary', 'type': 'button'}}) }}</span>
+    </div>
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+    </div>
 </main>
 {% endblock %}

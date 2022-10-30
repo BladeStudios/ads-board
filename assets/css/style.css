@@ -79,3 +79,9 @@ p
 {
     text-align: justify;
 }
+
+.form-container
+{
+    margin: auto;
+    max-width: 600px;
+}
