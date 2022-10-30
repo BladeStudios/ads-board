@@ -51,3 +51,10 @@ body
 {
     width: 80%;
 }
+
+.a-no-css, .a-no-css:hover
+{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
