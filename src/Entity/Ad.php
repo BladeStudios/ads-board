@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=AdRepository::class)
+ * @ORM\Table(name="ads")
  */
 class Ad
 {
