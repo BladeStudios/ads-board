@@ -35,7 +35,8 @@ In order to use an application locally, you need to:
 
 ## Main features
 
-- [TODO] Adding ads (with product name, price and description)
+- Adding ads (with product name, price and description)
+- [TODO] Add ad form validation
 - [TODO] Searching ads (with possibility to filter results by price and description)
 - [TODO] Displaying an ad by ID
 - [TODO] REST API (detailed info in "REST API features" section)
