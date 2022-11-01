@@ -7,6 +7,12 @@
 <main>
     <h1 class="h1">Szczegóły ogłoszenia</h1>
     <div class="container">
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger text-center">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% if ad %}
     <table class="table">
     <thead>
         <tr>
@@ -32,6 +38,7 @@
         </tr>
     </tbody>
     </table>
+    {% endif %}
     </div>
 </main>
 {% endblock %}

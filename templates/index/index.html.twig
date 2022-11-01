@@ -6,13 +6,6 @@
 {{ parent() }}
 <main>
     <h1 class="h1">Strona główna</h1>
-    <div class="container">
-    {% for message in app.flashes('error') %}
-        <div class="alert alert-danger text-center">
-            {{ message }}
-        </div>
-    {% endfor %}
-    </div>
     <article>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;AdsBoard to prosta aplikacja pozwalająca na dodawanie, wyszukiwanie i wyświetlanie ogłoszeń. Ogłoszenia dodawać można podając ich nazwę, cenę oraz opis. Wyszukiwarka umożliwia filtrowanie wyników wyszukiwania po cenie i zawartości w opisie ogłoszenia. Szczegóły danego ogłoszenia można wyświetlić klikając na jeden z wyników wyszukiwania lub wchodząc bezpośrednio przez link <a href="{{ absolute_url(path('home')) }}">{{ absolute_url(path('home')) }}</a> (zamiast id należy podać numer ogłoszenia).</p>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Dostępne jest również API, wymagające autoryzacji poprzez logowanie, za pomocą którego możemy również dodawać ogłoszenia, lub pobrać w formacie JSON wyniki wyszukiwania albo szczegóły danego ogłoszenia.</p>
