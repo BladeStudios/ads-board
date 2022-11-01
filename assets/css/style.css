@@ -80,7 +80,7 @@ p
     text-align: justify;
 }
 
-.form-container
+.container
 {
     margin: auto;
     max-width: 600px;
@@ -89,4 +89,14 @@ p
 .text-center
 {
   text-align: center;
+}
+
+td
+{
+  width: 50%;
+}
+
+.property-name
+{
+  font-weight: bold;
 }

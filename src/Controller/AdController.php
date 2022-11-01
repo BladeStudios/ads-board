@@ -32,4 +32,20 @@ class AdController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+    /**
+     * @Route("/ad/{id}", name="ad_display")
+     */
+    public function display(Request $request, ManagerRegistry $doctrine, $id): Response
+    {
+        $ad = $doctrine->getRepository(Ad::class)->find($id);
+        if(!$ad)
+        {
+            $this->addFlash('error', 'Ogłoszenie o id '.$id.' nie istnieje!');
+            return $this->redirectToRoute('home');
+        }
+        return $this->render('ad/index.html.twig', [
+            'ad' => $ad
+        ]);
+    }
 }
