@@ -44,7 +44,7 @@ class AdController extends AbstractController
             $this->addFlash('error', 'Ogłoszenie o id '.$id.' nie istnieje!');
             return $this->redirectToRoute('home');
         }
-        return $this->render('ad/index.html.twig', [
+        return $this->render('ad/display.html.twig', [
             'ad' => $ad
         ]);
     }
