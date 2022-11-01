@@ -7,6 +7,11 @@
 <main>
     <h1 class="h1">Dodawanie ogłoszenia</h1>
     <div class="form-container">
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success text-center">
+            {{ message }}
+        </div>
+    {% endfor %}
     {{ form_start(form) }}
     <div class="row mb-3">
         {{ form_label(form.name, null, {'label_attr':{'class':'col-sm-3 col-form-label'}}) }}
