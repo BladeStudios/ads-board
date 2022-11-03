@@ -10,7 +10,7 @@
         <p>API udostępnia następujące możliwości:
         <ul>
             <li>Wyświetlenie ogłoszenia o podanym {id}
-                <pre>//TODO</pre>
+                <pre>{{ path('api_ad', {id: '{id}'}) | replace({'%7B':'{', '%7D':'}'}) }}</pre>
             </li>
             <li>Dodawanie ogłoszenia
                 <pre>//TODO</pre>
