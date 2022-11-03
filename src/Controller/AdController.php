@@ -52,6 +52,7 @@ class AdController extends AbstractController
     public function searchAd(Request $request, ManagerRegistry $doctrine): Response
     {
         $ads = null;
+        $criterias = null;
         if(count($request->query->all())>0)
         {
             $name = $request->get('name');
@@ -59,9 +60,11 @@ class AdController extends AbstractController
             $max_price = $request->get('max_price');
             $description = $request->get('description');
             $ads = $doctrine->getRepository(Ad::class)->search($name, $min_price, $max_price, $description);
+            $criterias = 1;
         }
 
         return $this->render('ad/search.html.twig', [
+            'criterias' => $criterias,
             'ads' => $ads
         ]);
     }
