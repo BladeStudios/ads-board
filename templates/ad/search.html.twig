@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Wyszukiwarka ogłoszeń - AdsBoard{% endblock %}
+
+{% block body %}
+{{ parent() }}
+<main>
+    <h1 class="h1">Wyszukiwarka ogłoszeń</h1>
+    <div class="container-search text-center">
+    {% if ads %}
+    {% set count = ads | length %}
+    Znaleziono {{ count }} {% if count == 1 %}ogłoszenie{% elseif count < 5 %}ogłoszenia{% else %}ogłoszeń{% endif %} o podanych kryteriach.<br><br>
+    {% for ad in ads %}
+    <div class="ad">
+        <div class="ad-name">{{ ad.name }}</div>
+        <div><b>Opis:</b>&nbsp;{{ ad.description }}</div>
+        <div class="left-right">
+            <span><b>Cena:</b>&nbsp;{{ ad.price }}&nbsp;zł</span>
+            <a class="btn btn-secondary btn-sm szczegoly-btn" href="{{ path('ad_display', {id: ad.id}) }}">Szczegóły&nbsp;&gt;&gt;</a>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    Nie znaleziono ogłoszeń o podanych kryteriach.
+    {% endif %}
+    </div>
+</main>
+{% endblock %}

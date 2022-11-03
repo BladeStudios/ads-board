@@ -86,18 +86,20 @@ p
     max-width: 600px;
 }
 
+.container-search
+{
+    margin: auto;
+    max-width: 800px;
+}
+
 .text-center
 {
   text-align: center;
 }
 
-td
-{
-  width: 50%;
-}
-
 .property-name
 {
+  width: 50%;
   font-weight: bold;
 }
 
@@ -107,4 +109,32 @@ pre
   border: 1px solid #ccc;
   padding: 5px;
   margin-top: 5px;
+}
+
+.ad
+{
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.ad-name
+{
+  font-size: 2em;
+  margin-top: -5px;
+}
+
+.left-right
+{
+  display: flex;
+  justify-content: space-between;
+}
+
+.szczegoly-btn
+{
+  padding: 0rem 0.3rem;
+  font-size: 0.8rem;
 }

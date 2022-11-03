@@ -45,4 +45,24 @@ class AdController extends AbstractController
             'ad' => $ad
         ]);
     }
+
+    /**
+     * @Route("/ad/search", name="ad_search")
+     */
+    public function searchAd(Request $request, ManagerRegistry $doctrine): Response
+    {
+        $ads = null;
+        if(count($request->query->all())>0)
+        {
+            $name = $request->get('name');
+            $min_price = $request->get('min_price');
+            $max_price = $request->get('max_price');
+            $description = $request->get('description');
+            $ads = $doctrine->getRepository(Ad::class)->search($name, $min_price, $max_price, $description);
+        }
+
+        return $this->render('ad/search.html.twig', [
+            'ads' => $ads
+        ]);
+    }
 }
