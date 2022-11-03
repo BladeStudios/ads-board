@@ -10,13 +10,13 @@
         <p>API udostępnia następujące możliwości:
         <ul>
             <li>Wyświetlenie ogłoszenia o podanym {id}
-                <pre>{{ path('api_ad', {id: '{id}'}) | replace({'%7B':'{', '%7D':'}'}) }}</pre>
+                <pre>GET {{ path('api_ad_display', {id: '{id}'}) | replace({'%7B':'{', '%7D':'}'}) }}</pre>
             </li>
-            <li>Dodawanie ogłoszenia
-                <pre>//TODO</pre>
+            <li>Dodawanie ogłoszenia o podanej nazwie {name}, cenie {price} i opisie {description}
+                <pre>POST {{ path('api_ad_add') }}?name={name}&price={price}&description={description}</pre>
             </li>
             <li>Wyszukiwanie ogłoszeń
-                <pre>//TODO</pre>
+                <pre>GET //TODO</pre>
             </li>
         </ul>
         Dane zwracane są w formacie json.
