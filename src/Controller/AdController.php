@@ -34,7 +34,7 @@ class AdController extends AbstractController
     }
 
     /**
-     * @Route("/ad/{id}", name="ad_display")
+     * @Route("/ad/display/{id}", name="ad_display")
      */
     public function displayAd(ManagerRegistry $doctrine, $id): Response
     {
