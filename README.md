@@ -39,7 +39,6 @@ In order to use an application locally, you need to:
 - "Add ad" form validation
 - Searching ads (with possibility to filter results by price and description)
 - Displaying an ad by ID
-- [TODO] "Search ads" form validation
 - [TODO] REST API (detailed info in "REST API features" section)
 
 ## REST API features
@@ -50,7 +49,8 @@ In order to use an application locally, you need to:
 - Getting an ad by ID
 
 ## [PL] Co można jeszcze ulepszyć w aplikacji
-- Dodać front-endową (JS/jQuery) walidację formularzy dodawania i wyszukiwania ogłoszeń
+- Dodać front-endową (JS/jQuery) walidację formularza dodawania ogłoszeń
+- Dodać front-endową i back-endową walidację formularza wyszukiwania ogłoszeń
 - Dodać paginację w wyszukiwarce ogłoszeń
 - Poprawki wizualne - np. szerokości inputów w formularzach
 
