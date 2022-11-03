@@ -73,4 +73,21 @@ class ApiController extends AbstractController
 
         return $response;
     }
+
+    /**
+     * @Route("/api/ad/search", name="api_ad_search")
+     */
+    public function searchAd(Request $request, ManagerRegistry $doctrine): JsonResponse
+    {
+        $name = $request->get('name');
+        $min_price = $request->get('min_price');
+        $max_price = $request->get('max_price');
+        $description = $request->get('description');
+
+        $ads = $doctrine->getRepository(Ad::class)->search($name, $min_price, $max_price, $description);
+
+        $data = $this->entityToArray($ads);
+
+        return $this->json($data, 200, ["Content-Type" => "application/json"]);
+    }
 }

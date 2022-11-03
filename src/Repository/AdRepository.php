@@ -39,6 +39,19 @@ class AdRepository extends ServiceEntityRepository
         }
     }
 
+    public function search($name, $min_price, $max_price, $description): array
+    {
+        $queryBuilder = $this->createQueryBuilder('a');
+
+        if($name) $queryBuilder->andWhere('a.name LIKE :name')->setParameter('name', '%'.$name.'%');
+        if($min_price) $queryBuilder->andWhere('a.price >= :min_price')->setParameter('min_price', $min_price);
+        if($max_price) $queryBuilder->andWhere('a.price <= :max_price')->setParameter('max_price', $max_price);
+        if($description) $queryBuilder->andWhere('a.description LIKE :description')->setParameter('description', '%'.$description.'%');
+
+        $query = $queryBuilder->getQuery();
+        return $query->execute();
+    }
+
 //    /**
 //     * @return Ad[] Returns an array of Ad objects
 //     */
