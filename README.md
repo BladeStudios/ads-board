@@ -49,6 +49,20 @@ In order to use an application locally, you need to:
 - Searching ads (with filters by price and description)
 - Getting an ad by ID
 
+## Unit tests
+
+In order to run unit tests you have to:
+- set in .env file a development environment:
+    <code>APP_ENV=dev</code>
+- run command:
+    ```
+    composer install
+    ```
+- run tests:
+    ```
+    bin/phpunit
+    ```
+    
 ## [PL] Co można jeszcze ulepszyć w aplikacji
 - Dodać panel rejestracji, logowania i panel użytkownika, gdzie użytkownik generowałby sobie token do API - z ograniczeniem czasowym (expiration date)
 - Dodać front-endową (JS/jQuery) walidację formularza dodawania ogłoszeń
@@ -56,6 +70,7 @@ In order to use an application locally, you need to:
 - Dodać więcej walidacji w ApiControllerze, szczególnie przy dodawaniu ogłoszeń
 - Dodać paginację w wyszukiwarce ogłoszeń
 - Poprawki wizualne - np. szerokości inputów w formularzach
+- Dodać więcej unit testów
 
 ## Technologies used
 
