@@ -24,7 +24,7 @@ class ApiController extends AbstractController
     }
 
     /**
-     * @Route("/api/ad/{id}", name="api_ad")
+     * @Route("/api/ad/display/{id}", name="api_ad")
      */
     public function displayAd(ManagerRegistry $doctrine, $id): JsonResponse
     {
