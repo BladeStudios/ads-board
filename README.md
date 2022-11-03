@@ -36,7 +36,7 @@ In order to use an application locally, you need to:
 ## Main features
 
 - Adding ads (with product name, price and description)
-- [TODO] "Add ad" form validation
+- "Add ad" form validation
 - Searching ads (with possibility to filter results by price and description)
 - Displaying an ad by ID
 - [TODO] "Search ads" form validation
@@ -48,6 +48,11 @@ In order to use an application locally, you need to:
 - Adding ads
 - Searching ads (with filters by price and description)
 - Getting an ad by ID
+
+## [PL] Co można jeszcze ulepszyć w aplikacji
+- Dodać front-endową (JS/jQuery) walidację formularzy dodawania i wyszukiwania ogłoszeń
+- Dodać paginację w wyszukiwarce ogłoszeń
+- Poprawki wizualne - np. szerokości inputów w formularzach
 
 ## Technologies used
 

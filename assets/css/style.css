@@ -138,3 +138,9 @@ pre
   padding: 0rem 0.3rem;
   font-size: 0.8rem;
 }
+
+.error-box
+{
+    flex: 0 0 auto;
+    color: red;
+}

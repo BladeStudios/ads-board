@@ -22,7 +22,8 @@ class AdFormType extends AbstractType
             ])
             ->add('price', NumberType::class, [
                 'label' => 'Cena',
-                'empty_data' => ''
+                'empty_data' => '',
+                'invalid_message' => 'Cena musi być liczbą.'
             ])
             ->add('description', TextareaType::class, [
                 'label' => 'Opis',
