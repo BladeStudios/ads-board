@@ -25,7 +25,7 @@ class ApiController extends AbstractController
     }
 
     /**
-     * @Route("/api/ad/display/{id}", name="api_ad")
+     * @Route("/api/ad/display/{id}", name="api_ad_display")
      */
     public function displayAd(ManagerRegistry $doctrine, $id): JsonResponse
     {
@@ -49,7 +49,7 @@ class ApiController extends AbstractController
     }
 
     /**
-     * @Route("/api/ad/add", methods={"POST"}, name="api_add")
+     * @Route("/api/ad/add", methods={"POST"}, name="api_ad_add")
      */
     public function addAd(Request $request, ManagerRegistry $doctrine): Response
     {
