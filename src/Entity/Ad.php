@@ -27,6 +27,7 @@ class Ad
 
     /**
      * @ORM\Column(type="float")
+     * @Assert\NotBlank(message="Cena nie może być pusta.");
      * @Assert\Regex("/^[1-9]{1}[0-9]*(\.[0-9]{2})?$/", message="Poprawny format ceny to xxx.xx i xxx, np. 12345.67 lub 1234")
      * @Assert\Range(min = 100, max = 1000000000, notInRangeMessage = "Cena musi wynosić od {{ min }} zł do {{ max }} zł.",
      * )
