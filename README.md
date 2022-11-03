@@ -44,7 +44,7 @@ In order to use an application locally, you need to:
 ## REST API features
 
 - [TODO] Authorization to prevent unauthorized usage of an API
-- [TODO] Adding ads
+- Adding ads
 - [TODO] Searching ads (with filters by price and description)
 - Getting an ad by ID
 
