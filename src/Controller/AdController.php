@@ -9,6 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\AdFormType;
 use Doctrine\Persistence\ManagerRegistry;
+use App\Form\SearchFormType;
 
 class AdController extends AbstractController
 {
@@ -51,6 +52,9 @@ class AdController extends AbstractController
      */
     public function searchAd(Request $request, ManagerRegistry $doctrine): Response
     {
+        $form = $this->createForm(SearchFormType::class);
+        $form->handleRequest($request);
+
         $ads = null;
         $criterias = null;
         if(count($request->query->all())>0)
@@ -65,7 +69,8 @@ class AdController extends AbstractController
 
         return $this->render('ad/search.html.twig', [
             'criterias' => $criterias,
-            'ads' => $ads
+            'ads' => $ads,
+            'form' => $form->createView()
         ]);
     }
 }
