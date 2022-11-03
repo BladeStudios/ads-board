@@ -13,6 +13,8 @@ use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\Request;
+use App\Entity\Token;
+
 
 class ApiController extends AbstractController
 {
@@ -27,8 +29,11 @@ class ApiController extends AbstractController
     /**
      * @Route("/api/ad/display/{id}", name="api_ad_display")
      */
-    public function displayAd(ManagerRegistry $doctrine, $id): JsonResponse
+    public function displayAd(Request $request, ManagerRegistry $doctrine, $id): JsonResponse
     {
+        if(!$this->isTokenValid($request, $doctrine))
+            return $this->json('Unauthorized', 401, ["Content-Type" => "application/json"]);
+
         $ad = $doctrine->getRepository(Ad::class)->find($id);
         if(!$ad)
         {
@@ -51,11 +56,21 @@ class ApiController extends AbstractController
     /**
      * @Route("/api/ad/add", methods={"POST"}, name="api_ad_add")
      */
-    public function addAd(Request $request, ManagerRegistry $doctrine): Response
+    public function addAd(Request $request, ManagerRegistry $doctrine): JsonResponse
     {
+        if(!$this->isTokenValid($request, $doctrine))
+            return $this->json('Unauthorized', 401, ["Content-Type" => "application/json"]);
+
         $name = $request->get('name');
         $price = $request->get('price');
         $description = $request->get('description');
+
+        if(!$name || !$price || !$description)
+            return $this->json('Bad Request', 400, ["Content-Type" => "application/json"]);
+
+        $price_regex = "/^[1-9]{1}[0-9]*(\.[0-9]{2})?$/";
+        if(preg_match($price_regex, $price)==false)
+            return $this->json('Bad Request', 400, ["Content-Type" => "application/json"]);
 
         $ad = new Ad();
         $ad->setName($name);
@@ -67,7 +82,7 @@ class ApiController extends AbstractController
 
         $id = $ad->getId();
 
-        $response = new Response('Ad created.', 201, [
+        $response = new JsonResponse('Ad created.', 201, [
             'Location' => '/api/ad/'.$id
         ]);
 
@@ -79,6 +94,9 @@ class ApiController extends AbstractController
      */
     public function searchAd(Request $request, ManagerRegistry $doctrine): JsonResponse
     {
+        if(!$this->isTokenValid($request, $doctrine))
+            return $this->json('Unauthorized', 401, ["Content-Type" => "application/json"]);
+
         $name = $request->get('name');
         $min_price = $request->get('min_price');
         $max_price = $request->get('max_price');
@@ -89,5 +107,14 @@ class ApiController extends AbstractController
         $data = $this->entityToArray($ads);
 
         return $this->json($data, 200, ["Content-Type" => "application/json"]);
+    }
+
+    public function isTokenValid(Request $request, ManagerRegistry $doctrine)
+    {
+        $authorizationHeader = $request->headers->get('Authorization');
+        $token = substr($authorizationHeader, 7);
+        $result = $doctrine->getRepository(Token::class)->findBy(['token' => $token]);
+        if($result) return true;
+        else return false;
     }
 }

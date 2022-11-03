@@ -39,18 +39,21 @@ In order to use an application locally, you need to:
 - "Add ad" form validation
 - Searching ads (with possibility to filter results by price and description)
 - Displaying an ad by ID
-- [TODO] REST API (detailed info in "REST API features" section)
+- REST API (detailed info in "REST API features" section)
 
 ## REST API features
 
-- [TODO] Authorization to prevent unauthorized usage of an API
+- Generating a random API token
+- Authorization to prevent unauthorized usage of an API
 - Adding ads
 - Searching ads (with filters by price and description)
 - Getting an ad by ID
 
 ## [PL] Co można jeszcze ulepszyć w aplikacji
+- Dodać panel rejestracji, logowania i panel użytkownika, gdzie użytkownik generowałby sobie token do API - z ograniczeniem czasowym (expiration date)
 - Dodać front-endową (JS/jQuery) walidację formularza dodawania ogłoszeń
 - Dodać front-endową i back-endową walidację formularza wyszukiwania ogłoszeń
+- Dodać więcej walidacji w ApiControllerze, szczególnie przy dodawaniu ogłoszeń
 - Dodać paginację w wyszukiwarce ogłoszeń
 - Poprawki wizualne - np. szerokości inputów w formularzach
 

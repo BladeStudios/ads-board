@@ -23,7 +23,7 @@
                 <pre>GET {{ absolute_url(path('api_ad_search')) }}?name={name}&min_price={min_price}&max_price={max_price}&description={description}</pre>
             </li>
         </ul>
-        Dane zwracane są w formacie json.
+        Dane zwracane są w formacie json. <b>Uwaga! Aby korzystać z API wymagana jest autoryzacja poprzez token. Token należy przesłać jako header (Authorization: Bearer {token}).</b>
         </p>
         <button id="tokenBtn" class="btn btn-primary">Generuj API token</button>
         <pre id="tokenPre"></pre>
