@@ -25,6 +25,28 @@
         </ul>
         Dane zwracane są w formacie json.
         </p>
+        <button id="tokenBtn" class="btn btn-primary">Generuj API token</button>
+        <pre id="tokenPre"></pre>
     </article>
 </main>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script>
+$(document).ready(function() {
+
+    $('#tokenBtn').click(function(){
+        $.ajax("{{ path('token') }}", {
+        type: 'POST',
+        data: {},
+        success: function(data, status, xhr){
+            $('#tokenPre').text(data);
+        }
+    });
+    });
+
+    
+});
+</script>
 {% endblock %}
