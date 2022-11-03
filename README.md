@@ -43,7 +43,7 @@ In order to use an application locally, you need to:
 ## REST API features
 
 - Instructions how to use API (in Polish) are on route /api
-- Generating a random API token
+- Generating a random API token, using AJAX
 - Authorization to prevent unauthorized usage of an API
 - Adding ads
 - Searching ads (with filters by price and description)
