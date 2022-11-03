@@ -9,6 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 
 class AdFormType extends AbstractType
 {
@@ -19,7 +20,7 @@ class AdFormType extends AbstractType
                 'label' => 'Nazwa produktu',
                 'empty_data' => ''
             ])
-            ->add('price', TextType::class, [
+            ->add('price', NumberType::class, [
                 'label' => 'Cena',
                 'empty_data' => ''
             ])
