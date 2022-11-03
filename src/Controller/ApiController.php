@@ -12,6 +12,7 @@ use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpFoundation\Request;
 
 class ApiController extends AbstractController
 {
@@ -45,5 +46,31 @@ class ApiController extends AbstractController
         $normalizers = [new ObjectNormalizer()];
         $serializer = new Serializer($normalizers, $encoders);
         return json_decode($serializer->serialize($data, 'json'));
+    }
+
+    /**
+     * @Route("/api/ad/add", methods={"POST"}, name="api_add")
+     */
+    public function addAd(Request $request, ManagerRegistry $doctrine): Response
+    {
+        $name = $request->get('name');
+        $price = $request->get('price');
+        $description = $request->get('description');
+
+        $ad = new Ad();
+        $ad->setName($name);
+        $ad->setPrice($price);
+        $ad->setDescription($description);
+        $entityManager = $doctrine->getManager();
+        $entityManager->persist($ad);
+        $entityManager->flush();
+
+        $id = $ad->getId();
+
+        $response = new Response('Ad created.', 201, [
+            'Location' => '/api/ad/'.$id
+        ]);
+
+        return $response;
     }
 }
