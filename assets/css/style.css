@@ -100,3 +100,11 @@ td
 {
   font-weight: bold;
 }
+
+pre
+{
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin-top: 5px;
+}
