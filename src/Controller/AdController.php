@@ -15,7 +15,7 @@ class AdController extends AbstractController
     /**
      * @Route("/ad/add", name="ad_add")
      */
-    public function add(Request $request, ManagerRegistry $doctrine): Response
+    public function addAd(Request $request, ManagerRegistry $doctrine): Response
     {
         $ad = new Ad();
         $form = $this->createForm(AdFormType::class, $ad);
@@ -36,7 +36,7 @@ class AdController extends AbstractController
     /**
      * @Route("/ad/{id}", name="ad_display")
      */
-    public function display(ManagerRegistry $doctrine, $id): Response
+    public function displayAd(ManagerRegistry $doctrine, $id): Response
     {
         $ad = $doctrine->getRepository(Ad::class)->find($id);
         if(!$ad) $this->addFlash('error', 'Ogłoszenie o id '.$id.' nie istnieje!');
