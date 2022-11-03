@@ -26,7 +26,6 @@ In order to use an application locally, you need to:
     composer install
     php bin/console doctrine:database:create
     php bin/console doctrine:migrations:migrate
-    php bin/console doctrine:fixtures:load
     ```
 - Run XAMPP panel (xampp/xampp_start.exe)
 - Start Apache and MySQL services
@@ -43,6 +42,7 @@ In order to use an application locally, you need to:
 
 ## REST API features
 
+- Instructions how to use API (in Polish) are on route /api
 - Generating a random API token
 - Authorization to prevent unauthorized usage of an API
 - Adding ads
