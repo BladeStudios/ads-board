@@ -21,7 +21,7 @@ In order to use an application locally, you need to:
     <code>APP_SECRET=VkYp3s6v9y$B&E)H@McQeThWmZq4t7w!</code>
 - Open windows command line (Win + R shortcut, type "cmd" and click OK)
 - If you are on other disk than C:, switch to C: by typing "C:" and clicking ENTER
-- Now we're going to install all necessary packages, create a database and create an admin account to make logging into an admin panel possible. Type or paste following commands into the terminal and click ENTER after every of them:
+- Now we're going to install all necessary packages, create a database and all necessary tables. Type or paste following commands into the terminal and click ENTER after every of them:
     ```
     composer install
     php bin/console doctrine:database:create
